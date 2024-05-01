@@ -8,7 +8,11 @@
 
 ## Gallery🎨
 Screenshot from different angle:
+Angle 1:
 ![Angle_1](/Screenshot/Screenshot_1.png)
+Angle 2:
 ![Angle_1](/Screenshot/Screenshot_2.png)
+Angle 3:
 ![Angle_1](/Screenshot/Screenshot_3.png)
+Angle 4:
 ![Angle_1](/Screenshot/Screenshot_4.png)
