@@ -15,20 +15,37 @@ import static com.jogamp.opengl.GL2.*; // GL2 constants
 
 @SuppressWarnings("serial")
 public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, MouseListener, MouseMotionListener{
-    // Define constants for the top-level container
-       private static String TITLE = "Bedroom";
-       private static final int CANVAS_WIDTH = 1000;  // width of the drawable
-       private static final int CANVAS_HEIGHT = 800; // height of the drawable
-       private static final int FPS = 60; // animator's target frames per second
+        //Define constants for the top-level container
+        private static String TITLE = "Bedroom";
+        private static final int CANVAS_WIDTH = 1000;  // width of the drawable
+        private static final int CANVAS_HEIGHT = 800; // height of the drawable
+        private static final int FPS = 60; // animator's target frames per second
+
+        private Lamp lamp;
+        private Window window;
+        private Aircon aircon;
+        private Fan fan;
+        private Light light;
+        private Mirror mirror;
+        private Table table;
+        private Chair chair;
+        private PottedPlant pottedPlant;
+        private PencilHolder pencilHolder;
+        private Computer computer;
+        private Drawer drawer;
+        private Carpet carpet;
+        private Wardrobe wardrobe;
+        private BookShelf bookShelf;
+        private Books books;
+        private Bed bed;
+        private Tshirt tshirt;
+        private Luggage luggage;
        
-       private Lamp lamp;
-       private Window window;
-       
-    private static final float MOVE_SPEED = 0.1f;
-    private static final float ROTATE_SPEED = 0.5f;
-    private static final float MOUSE_SENSITIVITY = 0.1f;
-    
-    private int lastMouseX, lastMouseY;
+        private static final float MOVE_SPEED = 0.1f;
+        private static final float ROTATE_SPEED = 0.5f;
+        private static final float MOUSE_SENSITIVITY = 0.1f;
+
+        private int lastMouseX, lastMouseY;
 
        /** The entry main() method to setup the top-level container and animator */
     public static void main(String[] args) {
@@ -80,6 +97,23 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
    public Bedroom (){
         lamp = new Lamp();
         window = new Window();
+        aircon = new Aircon();
+        fan = new Fan();
+        light = new Light();
+        mirror = new Mirror();
+        table = new Table();
+        chair = new Chair();
+        pottedPlant = new PottedPlant();
+        pencilHolder = new PencilHolder();
+        computer = new Computer();
+        drawer = new Drawer();
+        carpet = new Carpet();
+        wardrobe = new Wardrobe();
+        bookShelf = new BookShelf();
+        books = new Books();
+        bed = new Bed();
+        tshirt = new Tshirt();
+        luggage = new Luggage();
         
         this.addGLEventListener(this);
         this.addKeyListener(this);
@@ -110,7 +144,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glTranslatef(-cameraX, -cameraY, -cameraZ);
         gl.glRotatef(-cameraPitch, 1, 0, 0);
         gl.glRotatef(-cameraYaw, 0, 1, 0);
-        
+
         //Draw the walls of the room
         
         //Back wall
@@ -122,7 +156,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(-1.0f,1.0f,-2.0f);  
         gl.glEnd();
         
-        gl.glColor3f(1.0f, 0.902f, 0.502f);
+        gl.glColor3f(0.9294f, 0.9216f, 0.8353f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(-0.99f,-0.99f,-1.99f);
         gl.glVertex3f(0.99f,-0.99f,-1.99f);
@@ -139,7 +173,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(-1.0f, 1.0f, 1.0f);
         gl.glEnd();
         
-        gl.glColor3f(1.0f, 0.902f, 0.502f);
+        gl.glColor3f(0.9294f, 0.9216f, 0.8353f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(-0.99f, -0.99f, 0.99f);
         gl.glVertex3f(0.99f, -0.99f, 0.99f);
@@ -156,7 +190,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(-1.0f, 1.0f, -2.0f);
         gl.glEnd();
         
-        gl.glColor3f(0.8f, 0.8f, 0.0f);
+        gl.glColor3f(1.0f, 0.851f, 0.702f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(-0.99f, -0.99f, -1.99f);
         gl.glVertex3f(-0.99f, -0.99f, 0.99f);
@@ -172,16 +206,14 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(1.0f, 1.0f, 0.5f);    
         gl.glVertex3f(1.0f, 1.0f, -2.0f);   
         gl.glEnd();
-        
-        gl.glColor3f(0.588f, 0.294f, 0.0f);  
+          
         gl.glBegin(GL2.GL_POLYGON);
         gl.glVertex3f(1.0f, 1.0f, 0.5f);    
         gl.glVertex3f(1.0f, 1.0f, 0.9f); 
-        gl.glVertex3f(1.0f, 0.3f, 0.9f);
-        gl.glVertex3f(1.0f, 0.3f, 0.5f);  
+        gl.glVertex3f(1.0f, 0.5f, 0.9f);
+        gl.glVertex3f(1.0f, 0.5f, 0.5f);  
         gl.glEnd();
-        
-        gl.glColor3f(0.588f, 0.294f, 0.0f);  
+
         gl.glBegin(GL2.GL_POLYGON);   
         gl.glVertex3f(1.0f, 1.0f, 0.9f); 
         gl.glVertex3f(1.0f, 1.0f, 1.0f);
@@ -190,7 +222,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glEnd();
         
         //inside right wall
-        gl.glColor3f(0.8f, 0.8f, 0.0f);
+        gl.glColor3f(1.0f, 0.851f, 0.702f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(0.99f, 0.99f, -1.99f);
         gl.glVertex3f(0.99f, -0.99f, -1.99f);
@@ -198,15 +230,13 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(0.99f, 0.99f, 0.5f);
         gl.glEnd();
         
-        gl.glColor3f(0.8f, 0.8f, 0.0f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(0.99f, 0.99f, 0.5f);    
         gl.glVertex3f(0.99f, 0.99f, 0.9f); 
-        gl.glVertex3f(0.99f, 0.3f, 0.9f);
-        gl.glVertex3f(0.99f, 0.3f, 0.5f);  
+        gl.glVertex3f(0.99f, 0.5f, 0.9f);
+        gl.glVertex3f(0.99f, 0.5f, 0.5f);  
         gl.glEnd();
         
-        gl.glColor3f(0.8f, 0.8f, 0.0f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(0.99f, 0.99f, 0.9f); 
         gl.glVertex3f(0.99f, 0.99f, 0.99f);
@@ -223,7 +253,7 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(-1.0f, 1.0f, 1.0f);
         gl.glEnd();
 
-        gl.glColor3f(1.0f, 1.0f, 1.0f);
+        gl.glColor3f(0.95f, 0.95f, 0.95f);
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(-0.99f, 0.99f, -1.99f);
         gl.glVertex3f(0.99f, 0.99f, -1.99f);
@@ -240,16 +270,34 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
         gl.glVertex3f(-1.0f, -1.0f, 1.0f);
         gl.glEnd();
         
-        gl.glColor3f(0.588f, 0.294f, 0.0f); 
+        gl.glColor3f(0.9f, 0.9f, 0.9f); 
         gl.glBegin(GL_QUADS);
         gl.glVertex3f(-0.99f, -0.99f, -1.99f);
         gl.glVertex3f(0.99f, -0.99f, -1.99f);
         gl.glVertex3f(0.99f, -0.99f, 0.99f);
         gl.glVertex3f(-0.99f, -0.99f, 0.99f);
         gl.glEnd();
-           
+
+        aircon.drawAircon(gl);        
+        fan.drawFan(gl);
+        fan.rotateFan();      
+        light.drawLight(gl);        
         lamp.draw(gl);
-        window.draw(gl);
+        window.drawWindow(gl);
+        mirror.drawMirror(gl);
+        carpet.drawCarpet(gl);
+        luggage.drawLuggage(gl);
+        table.drawTable(gl, 0.3f, -0.69f, 0.79f);
+        chair.drawChair(gl, 0.3f, -0.64f, 0.4f);
+        computer.drawComputer(gl, 0.3f, -0.57f, 0.7f);
+        pottedPlant.drawPottedPlant(gl,glu,0.9f,-0.51f,-0.1f);
+        pencilHolder.drawPencilHolder(gl,glu,-0.4f,-0.036f,0.1f);       
+        drawer.drawDrawer(gl);      
+        wardrobe.drawWardrobe(gl);       
+        bookShelf.drawBookShelf(gl);
+        books.drawBooks(gl);
+        bed.drawBed(gl);
+        tshirt.drawTshirt(gl);
     }
 
     @Override
