@@ -17,6 +17,11 @@
 - Press the E key to rotate the camera right.
 - Feel free to use your mouse to swipe across the screen and explore the entire scene. Moving the mouse horizontally allows you to look left or right, while vertical movements enable you to glance up or down. Take your time to navigate and discover all the details within the environment.
 
+### Group Members:
+  1. Everlyn Yin Jia May
+  2. Loh Pooi Hua
+  3. Lim Yan Xin
+  4. Nyam Siew Fong
    
 ## Gallery🎨
 Screenshot from different angle:
