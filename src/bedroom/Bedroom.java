@@ -88,10 +88,10 @@ public class Bedroom extends GLCanvas implements GLEventListener, KeyListener, M
       
    private GLU glu;  // for the GL Utility
    
-    private float cameraX = 0;
+    private float cameraX = 1;
     private float cameraY = 0;
     private float cameraZ = 3;
-    private float cameraYaw = 0;
+    private float cameraYaw = 60;
     private float cameraPitch = 0;
    
    public Bedroom (){
