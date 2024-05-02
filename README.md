@@ -1,4 +1,4 @@
-# Computer Graphics group assignment (CG Group 2) 
+# Computer Graphics group assignment (CG Group 2-Slumber Squad) 
 ## 3D Environment - Bedroom
 ### Object Categories:
   1. Furniture: Bed, Wardrobe, Mirror, Carpet, Table, Chair, Bookshelf, Window 
