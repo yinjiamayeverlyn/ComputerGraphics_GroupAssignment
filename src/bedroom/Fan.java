@@ -18,22 +18,23 @@ public class Fan {
         //scale down the size of the fan
         gl.glScalef(0.25f,0.25f,0.25f);
         
-        //draw the main body of the fan- Cube
-        gl.glPushMatrix();
-        gl.glColor3f(1.0f, 1.0f, 1.0f);
-        gl.glScalef(1, 1.2f, 1);
-        gl.glScalef(.5f, .4f, .5f);
-        gl.glTranslatef(0, -2.0f, 0);
-        gl.glScalef(1.0f, 0.7f, 1.0f);
-        gl.glTranslatef(0, -0.5f, 0);
-        glutSolidCube(gl, 1);
-        gl.glPopMatrix();
+        // Draw the main body of the fan (Cube)
+        gl.glPushMatrix(); // Push the current matrix onto the stack to save its state
+        gl.glColor3f(1.0f, 1.0f, 1.0f); // Set color to white
+        gl.glScalef(1, 1.2f, 1); // Scale the main body
+        gl.glScalef(0.5f, 0.4f, 0.5f); // Scale the main body
+        gl.glTranslatef(0, -2.0f, 0); // Translate the main body
+        gl.glScalef(1.0f, 0.7f, 1.0f); // Scale the main body
+        gl.glTranslatef(0, -0.5f, 0); // Translate the main body
+        glutSolidCube(gl, 1); // Draw the main body of the fan
+        gl.glPopMatrix(); // Pop the matrix stack to revert to the previous state
 
         
         //draw the rotating blandes of the fan
         gl.glPushMatrix();
         gl.glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f);
 
+        //Draw blade 1
         gl.glPushMatrix();
         gl.glTranslatef(0, -1.05f, 0);
         gl.glScalef(0.15f, .15f, .15f);
@@ -48,6 +49,7 @@ public class Fan {
         gl.glEnd();
         gl.glPopMatrix();
 
+        //Draw blade 2
         gl.glPushMatrix();
         gl.glColor3f(.3f, .3f, .3f);
         gl.glRotatef(90, 1, 0, 0);
@@ -84,6 +86,7 @@ public class Fan {
 
         gl.glPopMatrix();
 
+        //Draw blade 3
         gl.glPushMatrix();
         gl.glRotatef(90, 0, 1, 0);
         gl.glPushMatrix();
@@ -112,6 +115,7 @@ public class Fan {
 
         gl.glPopMatrix();
 
+        //Draw blade 4
         gl.glPushMatrix();
         gl.glRotatef(180, 0, 1, 0);
 
