@@ -59,7 +59,7 @@ public class Fan {
 
         gl.glPushMatrix();
 
-        //first blandes
+        //first blades
         gl.glPushMatrix();
         gl.glColor3f(0.0f, 0.0f, 0.4f);
         gl.glTranslatef(-1, -1.55f, 0);
@@ -86,7 +86,7 @@ public class Fan {
 
         gl.glPopMatrix();
 
-        //second blandes
+        //second blades
         gl.glPushMatrix();
         gl.glRotatef(90, 0, 1, 0);
         gl.glPushMatrix();
@@ -115,7 +115,7 @@ public class Fan {
 
         gl.glPopMatrix();
 
-        //Draw blade 3
+        //third blades
         gl.glPushMatrix();
         gl.glRotatef(180, 0, 1, 0);
 
@@ -145,7 +145,7 @@ public class Fan {
 
         gl.glPopMatrix();
         
-        //forth blandes 
+        //forth blades 
         gl.glPushMatrix();
         gl.glRotatef(270, 0, 1, 0);
         gl.glPushMatrix();
