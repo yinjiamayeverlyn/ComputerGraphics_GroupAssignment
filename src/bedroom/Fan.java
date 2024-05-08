@@ -34,7 +34,6 @@ public class Fan {
         gl.glPushMatrix();
         gl.glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f);
 
-        //Draw blade 1
         gl.glPushMatrix();
         gl.glTranslatef(0, -1.05f, 0);
         gl.glScalef(0.15f, .15f, .15f);
@@ -49,7 +48,7 @@ public class Fan {
         gl.glEnd();
         gl.glPopMatrix();
 
-        //Draw blade 2
+        //SolidTorus
         gl.glPushMatrix();
         gl.glColor3f(.3f, .3f, .3f);
         gl.glRotatef(90, 1, 0, 0);
@@ -60,6 +59,36 @@ public class Fan {
 
         gl.glPushMatrix();
 
+        //first blandes
+        gl.glPushMatrix();
+        gl.glColor3f(0.0f, 0.0f, 0.4f);
+        gl.glTranslatef(-1, -1.55f, 0);
+        gl.glScalef(2.5f, .1f, .75f);
+        glutSolidCube(gl, .5f);
+        gl.glPopMatrix();
+
+        gl.glPushMatrix();
+        gl.glTranslatef(0, -1.55f, 0);
+        gl.glScalef(0.05f, .11f, .05f);
+        gl.glRotatef(90, 1, 0, 0);
+        gl.glRotatef(90, 0, 1, 0);
+        gl.glTranslatef(0, 0, -5);
+        gl.glScalef(1, 1, 2.4f);
+        gl.glBegin(GL2.GL_QUAD_STRIP);
+        for (int j = 0; j <= 360; j += DEF_D) {
+            gl.glColor3f(.3f, .3f, .3f);
+            gl.glVertex3f(cos(j), +1, sin(j));
+            gl.glColor3f(.7f, .7f, .7f);
+            gl.glVertex3f(cos(j), -1, sin(j));
+        }
+        gl.glEnd();
+        gl.glPopMatrix();
+
+        gl.glPopMatrix();
+
+        //second blandes
+        gl.glPushMatrix();
+        gl.glRotatef(90, 0, 1, 0);
         gl.glPushMatrix();
         gl.glColor3f(0.0f, 0.0f, 0.4f);
         gl.glTranslatef(-1, -1.55f, 0);
@@ -88,35 +117,6 @@ public class Fan {
 
         //Draw blade 3
         gl.glPushMatrix();
-        gl.glRotatef(90, 0, 1, 0);
-        gl.glPushMatrix();
-        gl.glColor3f(0.0f, 0.0f, 0.4f);
-        gl.glTranslatef(-1, -1.55f, 0);
-        gl.glScalef(2.5f, .1f, .75f);
-        glutSolidCube(gl, .5f);
-        gl.glPopMatrix();
-
-        gl.glPushMatrix();
-        gl.glTranslatef(0, -1.55f, 0);
-        gl.glScalef(0.05f, .11f, .05f);
-        gl.glRotatef(90, 1, 0, 0);
-        gl.glRotatef(90, 0, 1, 0);
-        gl.glTranslatef(0, 0, -5);
-        gl.glScalef(1, 1, 2.4f);
-        gl.glBegin(GL2.GL_QUAD_STRIP);
-        for (int j = 0; j <= 360; j += DEF_D) {
-            gl.glColor3f(.3f, .3f, .3f);
-            gl.glVertex3f(cos(j), +1, sin(j));
-            gl.glColor3f(.7f, .7f, .7f);
-            gl.glVertex3f(cos(j), -1, sin(j));
-        }
-        gl.glEnd();
-        gl.glPopMatrix();
-
-        gl.glPopMatrix();
-
-        //Draw blade 4
-        gl.glPushMatrix();
         gl.glRotatef(180, 0, 1, 0);
 
         gl.glPushMatrix();
@@ -144,7 +144,8 @@ public class Fan {
         gl.glPopMatrix();
 
         gl.glPopMatrix();
-
+        
+        //forth blandes 
         gl.glPushMatrix();
         gl.glRotatef(270, 0, 1, 0);
         gl.glPushMatrix();
@@ -170,7 +171,6 @@ public class Fan {
         }
         gl.glEnd();
         gl.glPopMatrix();
-
         gl.glPopMatrix();
 
         gl.glPopMatrix();
